@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpaceShooterAssetPack_Ships.png-0cec7b91a5e245ff5009086630a4e761.stex"
+path="res://.import/background.png-780d0b404590c4dff633be372fcaea2c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gfx/SpaceShooterAssetPack_Ships.png"
-dest_files=[ "res://.import/SpaceShooterAssetPack_Ships.png-0cec7b91a5e245ff5009086630a4e761.stex" ]
+source_file="res://assets/gfx/background.png"
+dest_files=[ "res://.import/background.png-780d0b404590c4dff633be372fcaea2c.stex" ]
 
 [params]
 
