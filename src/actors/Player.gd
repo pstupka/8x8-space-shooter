@@ -1,15 +1,19 @@
 extends KinematicBody2D
 
+export (PackedScene) var bullet_scene
+
 export var SPEED = 100
+export var COOLDOWN_TIME = 0.1
 
 onready var sprite = $Pivot/ShipSprite
+onready var cooldown_timer = $CooldownTimer
 
 var _direction = Vector2.ZERO
 var _velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	cooldown_timer.wait_time = COOLDOWN_TIME
 
 
 func _process(_delta: float) -> void:
@@ -31,7 +35,13 @@ func _process_input(_delta: float) -> void:
 		Engine.time_scale = 0.1
 	else:
 		Engine.time_scale = 1
-
+	
+	if Input.is_action_pressed("shoot"):
+		if (cooldown_timer.is_stopped()):
+			var bullet_instance = bullet_scene.instance()
+			get_tree().current_scene.add_child(bullet_instance)
+			bullet_instance.global_position = self.global_position - Vector2(0, 10)
+			cooldown_timer.start()
 
 func _process_movement(delta: float) -> void:
 	move_and_collide(_direction * SPEED * delta)
@@ -41,6 +51,9 @@ func _process_movement(delta: float) -> void:
 		global_position.x = 120
 	if global_position.x > 125:
 		global_position.x = 0
+	
+	if global_position.y > 160:
+		global_position.y = 160
 
 func _process_animation() -> void:
 	if _direction.x == 0:
