@@ -48,12 +48,12 @@ func _process_movement(delta: float) -> void:
 	
 	# Wrapping vertical position on screen
 	if global_position.x < -5:
-		global_position.x = 120
-	if global_position.x > 125:
+		global_position.x = Global.SCREEN_WIDTH
+	if global_position.x > Global.SCREEN_WIDTH + 5:
 		global_position.x = 0
 	
-	if global_position.y > 160:
-		global_position.y = 160
+	if global_position.y > Global.SCREEN_HEIGHT - 5:
+		global_position.y = Global.SCREEN_HEIGHT - 5
 
 func _process_animation() -> void:
 	if _direction.x == 0:

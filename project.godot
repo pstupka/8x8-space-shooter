@@ -14,13 +14,17 @@ config/name="8x8 Space Shooter"
 run/main_scene="res://src/levels/TestLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://src/autoload/Global.gd"
+
 [display]
 
-window/size/width=120
-window/size/height=160
+window/size/width=240
+window/size/height=180
 window/size/resizable=false
-window/size/test_width=600
-window/size/test_height=800
+window/size/test_width=960
+window/size/test_height=720
 window/vsync/use_vsync=false
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

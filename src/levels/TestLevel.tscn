@@ -16,27 +16,26 @@ speed_layer_1 = 50
 speed_layer_2 = 100
 
 [node name="BackgroundLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 128, 0 )
 
 [node name="background" type="Sprite" parent="ParallaxBackground/BackgroundLayer"]
-position = Vector2( 60, 80 )
+position = Vector2( -8, -36 )
 texture = ExtResource( 2 )
+centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 0, 256 )
+motion_mirroring = Vector2( 128, 256 )
 
 [node name="background_stars_1" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
 position = Vector2( 60, 80 )
 texture = ExtResource( 3 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 0, 256 )
+motion_mirroring = Vector2( 128, 256 )
 
 [node name="background_stars_2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
 position = Vector2( 60, 80 )
 texture = ExtResource( 5 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 60, 80 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 60, 140 )
