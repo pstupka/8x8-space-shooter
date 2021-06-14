@@ -91,8 +91,18 @@ action={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="PlayerBullets"
+2d_physics/layer_4="EnemyBullets"
+2d_physics/layer_5="Environment"
+2d_physics/layer_6="Entities"
+
 [physics]
 
+common/physics_fps=120
 common/enable_pause_aware_picking=true
 
 [rendering]
@@ -100,9 +110,11 @@ common/enable_pause_aware_picking=true
 quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
+2d/snapping/use_gpu_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 quality/skinning/software_skinning_fallback=false
 gles2/compatibility/disable_half_float=true
 quality/spatial_partitioning/use_bvh=false
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false

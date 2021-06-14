@@ -49,7 +49,7 @@ func _process_movement(delta: float) -> void:
 	# Interpolation to SPEED
 	_velocity = _velocity.linear_interpolate(_direction * SPEED, ACCELERATION_FACTOR)
 	
-	move_and_collide(_velocity * delta)
+	self.position += _velocity * delta
 	
 	# Wrapping vertical position on screen
 	if global_position.x < -5:
