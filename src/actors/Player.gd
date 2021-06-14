@@ -2,8 +2,9 @@ extends KinematicBody2D
 
 export (PackedScene) var bullet_scene
 
-export var SPEED = 100
+export var SPEED = 200
 export var COOLDOWN_TIME = 0.1
+export var ACCELERATION_FACTOR = 0.2
 
 onready var sprite = $Pivot/ShipSprite
 onready var cooldown_timer = $CooldownTimer
@@ -43,8 +44,12 @@ func _process_input(_delta: float) -> void:
 			bullet_instance.global_position = self.global_position - Vector2(0, 10)
 			cooldown_timer.start()
 
+
 func _process_movement(delta: float) -> void:
-	move_and_collide(_direction * SPEED * delta)
+	# Interpolation to SPEED
+	_velocity = _velocity.linear_interpolate(_direction * SPEED, ACCELERATION_FACTOR)
+	
+	move_and_collide(_velocity * delta)
 	
 	# Wrapping vertical position on screen
 	if global_position.x < -5:
@@ -54,6 +59,7 @@ func _process_movement(delta: float) -> void:
 	
 	if global_position.y > Global.SCREEN_HEIGHT - 5:
 		global_position.y = Global.SCREEN_HEIGHT - 5
+
 
 func _process_animation() -> void:
 	if _direction.x == 0:
