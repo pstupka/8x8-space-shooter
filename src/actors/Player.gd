@@ -8,6 +8,7 @@ export var ACCELERATION_FACTOR = 0.2
 
 onready var sprite = $Pivot/ShipSprite
 onready var cooldown_timer = $CooldownTimer
+onready var bullet_spawn = $BulletSpawn
 
 var _direction = Vector2.ZERO
 var _velocity = Vector2.ZERO
@@ -41,7 +42,7 @@ func _process_input(_delta: float) -> void:
 		if (cooldown_timer.is_stopped()):
 			var bullet_instance = bullet_scene.instance()
 			get_tree().current_scene.add_child(bullet_instance)
-			bullet_instance.global_position = self.global_position - Vector2(0, 10)
+			bullet_instance.global_position = bullet_spawn.global_position
 			cooldown_timer.start()
 
 

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/actors/EnemyShip.gd" type="Script" id=1]
+[ext_resource path="res://assets/gfx/ships_enemies.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[node name="EnemyShip" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Pivot"]
+position = Vector2( 0.111359, 0.111361 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 8, 8 )
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_EnemyShip_area_entered"]
