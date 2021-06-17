@@ -1,5 +1,5 @@
 extends Node
 
 # Global settings
-const SCREEN_WIDTH = 240
-const SCREEN_HEIGHT = 180
+const SCREEN_WIDTH = 200
+const SCREEN_HEIGHT = 144
